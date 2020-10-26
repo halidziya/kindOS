@@ -1,0 +1,34 @@
+
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    var counter = 0;
+    function get_page(){
+        $.get( "kindle/kindle" + counter + ".txt", function( data ) {
+            document.getElementById('field').innerHTML=data;
+        });
+
+        document.getElementById('info').innerHTML="Page : " + counter
+    }
+    get_page();
+</script>
+
+
+<div style="position: fixed;top: 0px;left:0px;width: 100%;">
+<button style="position:fixed; left: 0%; width: 20%; height: 3%;" onclick="counter--;get_page();">&lt;</button>
+<button style="position:fixed; left: 80%; width: 20%; height: 3%;" onclick="counter++;get_page();">&gt;</button>
+<div id="info" style="position:fixed; left: 20%; width: 60%; text-align: center; background-color: bisque; height: 3%;">WebKindleOs</div>
+</div>
+
+<pre id="field" style="
+ overflow-x: auto; /* Use horizontal scroller if needed; for Firefox 2, not needed in Firefox 3 */
+ white-space: pre-wrap; /* css-3 */
+ white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
+ white-space: -pre-wrap; /* Opera 4-6 */
+ white-space: -o-pre-wrap; /* Opera 7 */
+ position:relative;
+ top: 40px;
+ font-size: large;
+ /* width: 99%; */
+ word-wrap: break-word; /* Internet Explorer 5.5+ */">
+</pre>
